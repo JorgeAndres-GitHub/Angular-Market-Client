@@ -1,0 +1,47 @@
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field {
+    margin-bottom: 16px;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+form > div a {
+    text-align: center;
+}
+
+.register-container {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.box {
+    max-width: 420px;       
+    width: 100%;
+    margin: 40px auto;      
+    border: 1px solid #ccc;
+    padding: 24px;
+    border-radius: 10px;
+    background-color: #fff;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover */
+.box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
