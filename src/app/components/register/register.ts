@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +12,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './register.css',
 })
 export class Register {
+
+  private router = inject(Router)
 
   private formBuilder = new FormBuilder();
 
@@ -54,9 +56,10 @@ export class Register {
   }
 
   submitRegistration() {
-    if (this.form.valid) {
-      console.log(this.form.value);
-    }
+    if (this.form.invalid) return;
+
+    console.log(this.form.value);
+    this.router.navigate(['/login']);
 
   }
 }

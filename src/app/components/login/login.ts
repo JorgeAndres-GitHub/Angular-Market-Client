@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,10 @@ import { RouterLink } from '@angular/router';
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-export class Login {
+export class Login{  
+
+  constructor(private router: Router) {}
+
   private formBuilder = new FormBuilder();
 
   form = this.formBuilder.group({
@@ -37,8 +40,12 @@ export class Login {
   }
 
   submitLogin(){
-    if(this.form.valid){
-      console.log(this.form.value);
+    if(this.form.invalid){
+      return;
     }
+
+    console.log(this.form.value);
+
+    this.router.navigate(['/']);
   }
 }
